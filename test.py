@@ -8,7 +8,7 @@ with np.load('mnist.npz') as data:
 layer_sizes=(784,128,128,10)
 
 net = nn.NeuralNetwork(layer_sizes)
-net.weights=np.load("weights.npy",allow_pickle=True)
-net.biases=np.load("biases.npy",allow_pickle=True)
-
-net.print_accuracy(training_images[20000:30000],training_labels[20000:30000])
+net.weights=np.load("weights1.npy",allow_pickle=True)
+net.biases=np.load("biases1.npy",allow_pickle=True)
+print(training_images[0])
+net.print_accuracy(training_images,training_labels)
