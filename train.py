@@ -5,17 +5,17 @@ with np.load('mnist.npz') as data:
     training_images=data['training_images']
     training_labels=data['training_labels']
 
-layer_sizes=(784,128,128,10)
+layer_sizes=(784,32,10)
 
 net = nn.NeuralNetwork(layer_sizes)
-net.weights=np.load("weights1.npy",allow_pickle=True)
-net.biases=np.load("biases1.npy",allow_pickle=True)
-net.print_accuracy(training_images,training_labels)
+# net.weights=np.load("weights1.npy",allow_pickle=True)
+# net.biases=np.load("biases1.npy",allow_pickle=True)
+# net.print_accuracy(training_images,training_labels)
 
 k=0
 initial=k
 scale=40000
-for i in range(5):
+for i in range(10):
     k=initial
     while (k-initial)<scale:  
         for img,lbl in zip(training_images[k:k+500],training_labels[k:k+500]):
@@ -30,5 +30,5 @@ net.print_accuracy(training_images,training_labels)
 
 q=input("Do you want to save the network:(y/n)")
 if q=="y":
-    np.save("weights1.npy",net.weights)
-    np.save("biases1.npy",net.biases)
+    np.save("w_32.npy",net.weights)
+    np.save("b_32.npy",net.biases)

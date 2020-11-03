@@ -3,7 +3,7 @@ import numpy as np
 class NeuralNetwork:
     
     def __init__(self,layer_sizes):
-        self.lr=0.01
+        self.lr=0.0005
         weight_shapes=[(a,b) for a,b in zip(layer_sizes[1:],layer_sizes[:-1])]
         self.weights=[np.random.standard_normal(s)/s[1]**.5 for s in weight_shapes]
         self.biases=[np.zeros((s,1)) for s in layer_sizes[1:]]
